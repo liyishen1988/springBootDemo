@@ -1,6 +1,7 @@
 package com.lys.demo.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable{
 
@@ -11,7 +12,15 @@ public class User implements Serializable{
     private String email;
     private String mobile;
     private String role;
-//    private Date birthday;
+    private Date birthday;
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
 
     public Integer getSex() {
         return sex;
@@ -76,4 +85,5 @@ public class User implements Serializable{
     public void setRole(String role) {
         this.role = role;
     }
+
 }
