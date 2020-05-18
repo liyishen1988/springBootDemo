@@ -14,6 +14,15 @@ public class User implements Serializable{
     private String role;
     private Date birthday;
 
+    public User() {
+    }
+
+    public User(String name, Integer age, Integer sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
     public Date getBirthday() {
         return birthday;
     }

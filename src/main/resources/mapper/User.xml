@@ -10,4 +10,8 @@
         SELECT * FROM `user`
     </select>
 
+    <insert id="addUser">
+        INSERT INTO `user`(`name`,age,sex,email,mobile,role) VALUES (#{name},#{age},#{sex},#{email},#{mobile},#{role});
+    </insert>
+
 </mapper>
