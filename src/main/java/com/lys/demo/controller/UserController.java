@@ -2,6 +2,7 @@ package com.lys.demo.controller;
 
 import com.lys.demo.model.User;
 import com.lys.demo.service.UserService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-//@Api(value="测试api", tags="测试api")
+@Api(value="学生信息Controller", tags="学生信息查询")
 @RestController
 @RequestMapping("/user")
 public class UserController {
