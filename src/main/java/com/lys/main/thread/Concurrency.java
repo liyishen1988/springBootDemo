@@ -1,4 +1,4 @@
-package com.lys.main.多线程;
+package com.lys.main.thread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

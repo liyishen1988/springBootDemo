@@ -1,4 +1,4 @@
-package com.lys.main.多线程;
+package com.lys.main.thread;
 
 public class FirstThread extends Thread {
 

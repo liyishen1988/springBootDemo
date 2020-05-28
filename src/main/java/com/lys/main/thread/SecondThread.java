@@ -1,4 +1,4 @@
-package com.lys.main.多线程;
+package com.lys.main.thread;
 
 /**
  * Created by Administrator on 2020/5/19.

@@ -1,4 +1,4 @@
-package com.lys.main.多线程;
+package com.lys.main.thread;
 
 /**
  * 采用实现Runnable、Callable接口的方式创建多线程的优缺点：
