@@ -1,6 +1,7 @@
 package com.lys.main.thread;
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -20,51 +21,40 @@ import java.util.*;
 public class BamsCommand {
 
     public static void main(String[] args) {
-        File rootfile = new File("c:\\Users\\Administrator\\Pictures\\pic");
         Map<String, Object> map = new HashMap<>();
-        CloudWalkRequest request = new CloudWalkRequest();
-        request.setGetFace(1);
-        List<File> sonFiles = Arrays.asList(rootfile.listFiles());
-        List<File> totals = new ArrayList<>();
 
-        //遍历读取所有子目录
-        for (File sonFile : sonFiles) {
-            if (sonFile.getName().lastIndexOf(".") == -1) {
-                //每个子目录下的文件
-                List<File> sonFileList = Arrays.asList(sonFile.listFiles());
-                totals.addAll(sonFileList);
-            }
-        }
+        //云从引擎请求
+        CloudWalkRequest request = new CloudWalkRequest();
+        request.setGetFace(0);  //不返回头像的base64编码
+
+        //获取指定目录下的所有以.jpg或.png结尾的文件，包含子目录下的文件
+        File rootFile = new File("c:\\Users\\Administrator\\Pictures\\pic");
+        Collection<File> allFiles = FileUtils.listFiles(rootFile, new String[]{"jpg", "png"}, true);
+        List<File> totalImages = new ArrayList<>(allFiles);
 
         //数据分批
-        List<List<File>> batchList = splitListToList(totals, 50);
+        List<List<File>> batchList = splitListToList(totalImages, totalImages.size() / 2);
         //分批处理
         for (List<File> list : batchList) {
 //            初始化线程，在加入线程异步处理
             AsyncThreadPool.getInstance().execute(new Runnable() {
                 @Override
                 public void run() {
-                    for (File file : list) {
-                        //如果是jpg图片
-                        if (file.getName().lastIndexOf(".jpg") != -1) {
+                    try {
+                        for (File file : list) {
                             //发送识别请求，获取结果
                             request.setImg(base64(file.getPath()));
-                            try {
-                                String result = sendRequest(request);
-                                JSONObject jsonObject = JSONObject.parseObject(result);
-                                //如果引擎调用成功，code值放入map中
-                                if (jsonObject.get("result").toString().equals("0")) {
-                                    String code = jsonObject.get("code").toString();
-                                    map.put(file.getName(), code);
-                                }
+                            String result = sendRequest(request);
 
-                            } catch (IOException e) {
-                                e.printStackTrace();
+                            //如果引擎调用成功，code值放入map中
+                            JSONObject jsonObject = JSONObject.parseObject(result);
+                            if (jsonObject.getString("result").equals("0")) {
+                                String code = jsonObject.getString("code");
+                                map.put(file.getName(), code);
                             }
                         }
-                    }
-                    try {
-                        writeFile(map, rootfile);
+                        //写入文件
+                        writeFile(map, rootFile);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -73,6 +63,7 @@ public class BamsCommand {
         }
     }
 
+    //写入文件
     private static void writeFile(Map<String, Object> map, File filePath) throws IOException {
         String ocrFile = filePath + File.separator + "ocr.txt";
         File file = new File(ocrFile);
@@ -120,6 +111,7 @@ public class BamsCommand {
         return null;
     }
 
+    //图片转成base64编码
     private static String base64(String path) {
         InputStream inputStream = null;
         byte[] buffer = null;
