@@ -1,6 +1,7 @@
 package com.lys.demo;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 
 import javax.jms.*;

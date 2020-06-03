@@ -11,10 +11,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.tomcat.util.codec.binary.Base64;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.*;
 
 /**
@@ -40,14 +37,14 @@ public class BamsCommand {
         }
 
         //数据分批
-//        List<List<File>> batchList = splitListToList(totals, 50);
+        List<List<File>> batchList = splitListToList(totals, 50);
         //分批处理
-//        for (List<File> list : batchList) {
-            //初始化线程，在加入线程异步处理
-//            AsyncThreadPool.getInstance().execute(new Runnable() {
-//                @Override
-//                public void run() {
-                    for (File file : totals) {
+        for (List<File> list : batchList) {
+//            初始化线程，在加入线程异步处理
+            AsyncThreadPool.getInstance().execute(new Runnable() {
+                @Override
+                public void run() {
+                    for (File file : list) {
                         //如果是jpg图片
                         if (file.getName().lastIndexOf(".jpg") != -1) {
                             //发送识别请求，获取结果
@@ -59,16 +56,41 @@ public class BamsCommand {
                                 if (jsonObject.get("result").toString().equals("0")) {
                                     String code = jsonObject.get("code").toString();
                                     map.put(file.getName(), code);
-
                                 }
+
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
-//                    }
-//                }
-//            });
+                    }
+                    try {
+                        writeFile(map, rootfile);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
+    }
+
+    private static void writeFile(Map<String, Object> map, File filePath) throws IOException {
+        String ocrFile = filePath + File.separator + "ocr.txt";
+        File file = new File(ocrFile);
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+
+        String line = System.getProperty("line.separator");
+        StringBuffer buffer = new StringBuffer();
+        FileWriter fw = new FileWriter(ocrFile, false);
+        Set set = map.entrySet();
+        Iterator iter = set.iterator();
+        while (iter.hasNext()) {
+            Map.Entry entry = (Map.Entry) iter.next();
+            buffer.append(entry.getKey() + " : " + entry.getKey()).append(line);
+        }
+        fw.write(buffer.toString());
+        fw.close();
     }
 
     //直接发送http引擎请求
