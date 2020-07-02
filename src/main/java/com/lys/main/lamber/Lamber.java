@@ -1,6 +1,6 @@
 package com.lys.main.lamber;
 
-import com.lys.demo.model.User;
+import com.lys.demo.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;

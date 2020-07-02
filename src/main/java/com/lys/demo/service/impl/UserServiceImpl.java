@@ -1,7 +1,7 @@
 package com.lys.demo.service.impl;
 
 import com.lys.demo.dao.UserDao;
-import com.lys.demo.model.User;
+import com.lys.demo.entity.User;
 import com.lys.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

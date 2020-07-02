@@ -3,7 +3,7 @@ package com.lys.main.jsckJson;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lys.demo.model.User;
+import com.lys.demo.entity.User;
 
 import java.io.IOException;
 import java.text.ParseException;

@@ -1,7 +1,7 @@
 package com.lys.demo.dao;
 
 
-import com.lys.demo.model.User;
+import com.lys.demo.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
