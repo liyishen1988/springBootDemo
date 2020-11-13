@@ -1,6 +1,5 @@
 package com.lys.main.视频压缩;
 
-import com.alibaba.fastjson.JSONObject;
 import ws.schild.jave.encode.AudioAttributes;
 import ws.schild.jave.info.AudioInfo;
 import ws.schild.jave.Encoder;
