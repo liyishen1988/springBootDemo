@@ -11,6 +11,8 @@ public class FactoryProducer {
         } else if (choice.equalsIgnoreCase("COLOR")) {
             return new ColorFactory();
         }
+
+        System.out.println("没有找到对应的工厂Factory，可能是工厂的名称不存在，请重新填写一个。");
         return null;
     }
 
