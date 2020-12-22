@@ -150,11 +150,18 @@
 			<artifactId>jruby</artifactId>
 			<version>1.4.0</version>
 		</dependency>
+
 		<!-- 解决启动报错的问题 -->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>2.10.5</version>
+		</dependency>
+
+		<!-- SpringBoot集成Thymeleaf前端 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 	</dependencies>

@@ -16,7 +16,8 @@ public class IndexConfig {
     @EventListener({ApplicationReadyEvent.class})
     void applicationReadyEvent() {
         System.out.println("应用已经准备就绪 ... 启动浏览器");
-        String url = "http://localhost:8080/swagger-ui.html";
+        String url = "http://localhost:8080/index";
+//        String url = "http://localhost:8080/swagger-ui.html";
         Runtime runtime = Runtime.getRuntime();
         try {
             runtime.exec("rundll32 url.dll,FileProtocolHandler " + url);
