@@ -1,14 +1,90 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>SpringBoot</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
 <p th:text="SpringBoot集成Thymeleaf前端"></p>
+<p th:value="${name}"></p>
+
+<div id="app">
+    <p>{{ message }}</p>
+</div>
+
+<div id="app-2">
+  <span v-bind:title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span>
+</div>
+
+<div id="app-3">
+  <p v-if="seen">现在你看到我了</p>
+</div>
+
+<div id="app-4">
+  <ol>
+    <li v-for="item in list">
+      {{ item.text }}
+    </li>
+  </ol>
+</div>
+
+<div id="app-5">
+	<p>{{message}}</p>
+	<button v-on:click="reverseMessage">反转消息</button>
+</div>
 
 <img th:src="@{/images/一寸蓝底证件照.jpg}"/>
 <br/>
-<input th:value="${name}"/>
+
 </body>
 </html>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!'
+        }
+    })
+
+    var app2 = new Vue({
+        el: '#app-2',
+        data: {
+            message: '页面加载于 ' + new Date().toLocaleString()
+        }
+    })
+	
+	var app3 = new Vue({
+	  el: '#app-3',
+	  data: {
+		seen: true
+	  }
+	})
+	
+	var app4 = new Vue({
+	  el: '#app-4',
+	  data: {
+	    list: [
+	      { text: '学习 JavaScript' },
+	      { text: '学习 Vue' },
+	      { text: '整个牛项目' }
+	    ]
+	  }
+	})
+	
+	var app5 = new Vue({
+		el:'#app-5',
+		data:{
+			message:'Hello Vue.js!'
+		},
+		methods:{
+			reverseMessage:function () {
+				this.message=this.message.split('').reverse()
+			}
+		}
+	})
+	
+	
+
+</script>
