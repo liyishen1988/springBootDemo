@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Created by Administrator on 2020/12/22.
+ * 跳转index.html页面，用于测试Vue
  */
 @Controller
 public class PageController {

@@ -17,6 +17,9 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Swagger-api测试，跳转接口列表页面
+ */
 @Api(value="学生信息Controller", tags="学生信息查询")
 @RestController
 @RequestMapping("/user")

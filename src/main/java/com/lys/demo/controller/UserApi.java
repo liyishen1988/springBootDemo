@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- *
+ *  用于测试后台接口数据是否准确
  */
 @RequestMapping("/user/api")
 @RestController
@@ -38,10 +38,8 @@ public class UserApi {
     @PostMapping
     public void addUser(@Valid UserDTO userDTO) {
         User user = userDTO.convertToUser();
-
         List<String> list2 = Lists.newArrayList();
         HashMap<String, Object> map = Maps.newHashMap();
-
         userService.addUser(user);
     }
 
@@ -53,13 +51,10 @@ public class UserApi {
 
     private Date calculateDistributionTimeByOrderCreateTime(Date createOrderTime) {
         DateTime dateTime = new DateTime(createOrderTime);
-        
         Date tomorrow = dateTime.plusDays(1).toDate();
         Date afterTomorrow = dateTime.plusDays(2).toDate();
 
-        return dateTime.isAfter(DISTRIBUTION_TIME_SPLIT_TIME)
-                ? wrapDistributionTime(afterTomorrow)
-                : wrapDistributionTime(tomorrow);
+        return dateTime.isAfter(DISTRIBUTION_TIME_SPLIT_TIME) ? wrapDistributionTime(afterTomorrow) : wrapDistributionTime(tomorrow);
     }
 
     private Date wrapDistributionTime(Date distributionTime) {
@@ -67,9 +62,7 @@ public class UserApi {
         DateTime plusOneDay = currentDistributionDateTime.plusDays(1);
 
         boolean isSunday = (DateTimeConstants.SUNDAY == currentDistributionDateTime.getDayOfWeek());
-        return isSunday
-                ? plusOneDay.toDate()
-                : currentDistributionDateTime.toDate();
+        return isSunday ? plusOneDay.toDate() : currentDistributionDateTime.toDate();
     }
 
 }
