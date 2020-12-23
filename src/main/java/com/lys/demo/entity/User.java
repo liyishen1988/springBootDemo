@@ -13,6 +13,7 @@ public class User implements Serializable{
     private String mobile;
     private String role;
     private Date birthday;
+    private String password;
 
     public User() {
     }
@@ -21,6 +22,18 @@ public class User implements Serializable{
         this.name = name;
         this.age = age;
         this.sex = sex;
+    }
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Date getBirthday() {

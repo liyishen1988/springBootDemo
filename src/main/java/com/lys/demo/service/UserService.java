@@ -12,4 +12,6 @@ public interface UserService {
     List<User> listUsers();
 
     void addUser(User user);
+
+    void listUsersByLoginUser();
 }
