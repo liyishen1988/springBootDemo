@@ -14,4 +14,8 @@
         INSERT INTO `user`(`name`,age,sex,email,mobile,role) VALUES (#{name},#{age},#{sex},#{email},#{mobile},#{role});
     </insert>
 
+    <select id="selectByNameAndPassword"  resultType="com.lys.demo.entity.User">
+        select * from user where name = #{name} and password = #{password}
+    </select>
+
 </mapper>

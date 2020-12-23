@@ -38,6 +38,16 @@
 <img th:src="@{/images/一寸蓝底证件照.jpg}"/>
 <br/>
 
+<ul>
+	<!--首页让所有人都能看到，就直接渲染-->
+	<li>首页</li>
+
+	<!--根据权限数据渲染对应的菜单-->
+	<li th:each="item : ${menus}">
+		[[${item.path}]]
+	</li>
+</ul>
+
 </body>
 </html>
 <script type="text/javascript">

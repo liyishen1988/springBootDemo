@@ -3,13 +3,11 @@ package com.lys.demo.dao;
 
 import com.lys.demo.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by admin on 2020/4/27.
- */
 @Mapper
 @Repository
 public interface UserDao {
@@ -19,4 +17,6 @@ public interface UserDao {
     List<User> listUsers();
 
     void addUser(User user);
+
+    User selectByNameAndPassword(@Param("name") String name, @Param("password") String password);
 }
