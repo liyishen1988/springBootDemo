@@ -1,6 +1,6 @@
 package com.lys.baseJava.设计模式.建造者模式;
 
-import com.lys.baseJava.设计模式.impl.*;
+import com.lys.baseJava.设计模式.pojo.*;
 
 /**
  * 创建一个 MealBuilder 类，实际的 builder 类负责创建 Meal 对象

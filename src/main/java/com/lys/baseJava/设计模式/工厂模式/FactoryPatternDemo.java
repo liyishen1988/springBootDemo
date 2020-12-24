@@ -1,6 +1,6 @@
 package com.lys.baseJava.设计模式.工厂模式;
 
-import com.lys.baseJava.设计模式.impl.Shape;
+import com.lys.baseJava.设计模式.service.Shape;
 
 /**
  * 使用该工厂，通过传递类型信息来获取实体类的对象

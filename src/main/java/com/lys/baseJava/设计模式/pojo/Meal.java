@@ -1,4 +1,6 @@
-package com.lys.baseJava.设计模式.impl;
+package com.lys.baseJava.设计模式.pojo;
+
+import com.lys.baseJava.设计模式.service.Item;
 
 import java.util.ArrayList;
 import java.util.List;

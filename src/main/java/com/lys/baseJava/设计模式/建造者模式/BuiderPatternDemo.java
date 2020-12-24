@@ -1,6 +1,6 @@
 package com.lys.baseJava.设计模式.建造者模式;
 
-import com.lys.baseJava.设计模式.impl.Meal;
+import com.lys.baseJava.设计模式.pojo.Meal;
 
 /**
  * BuiderPatternDemo 使用 MealBuider 来演示建造者模式（Builder Pattern ）

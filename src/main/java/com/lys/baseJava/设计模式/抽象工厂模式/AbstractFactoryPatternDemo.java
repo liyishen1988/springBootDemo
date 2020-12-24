@@ -1,7 +1,7 @@
 package com.lys.baseJava.设计模式.抽象工厂模式;
 
-import com.lys.baseJava.设计模式.impl.Color;
-import com.lys.baseJava.设计模式.impl.Shape;
+import com.lys.baseJava.设计模式.service.Color;
+import com.lys.baseJava.设计模式.service.Shape;
 
 /**
  * 使用 FactoryProducer 来获取 AbstractFactory，通过传递类型信息来获取实体类的对象

@@ -1,9 +1,9 @@
 package com.lys.baseJava.设计模式.工厂模式;
 
-import com.lys.baseJava.设计模式.impl.Circle;
-import com.lys.baseJava.设计模式.impl.Rectangle;
-import com.lys.baseJava.设计模式.impl.Shape;
-import com.lys.baseJava.设计模式.impl.Square;
+import com.lys.baseJava.设计模式.service.impl.Circle;
+import com.lys.baseJava.设计模式.service.impl.Rectangle;
+import com.lys.baseJava.设计模式.service.Shape;
+import com.lys.baseJava.设计模式.service.impl.Square;
 
 /**
  * 创建一个工厂，生成基于给定信息的实体类的对象

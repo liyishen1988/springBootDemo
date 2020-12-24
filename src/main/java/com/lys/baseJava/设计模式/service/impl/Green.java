@@ -1,4 +1,6 @@
-package com.lys.baseJava.设计模式.impl;
+package com.lys.baseJava.设计模式.service.impl;
+
+import com.lys.baseJava.设计模式.service.Color;
 
 /**
  * Created by Administrator on 2020/12/21.

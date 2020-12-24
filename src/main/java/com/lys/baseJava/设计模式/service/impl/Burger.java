@@ -1,4 +1,7 @@
-package com.lys.baseJava.设计模式.impl;
+package com.lys.baseJava.设计模式.service.impl;
+
+import com.lys.baseJava.设计模式.service.Item;
+import com.lys.baseJava.设计模式.service.Packing;
 
 /**
  * 创建实现 Item 接口的抽象类，该类提供了默认的功能

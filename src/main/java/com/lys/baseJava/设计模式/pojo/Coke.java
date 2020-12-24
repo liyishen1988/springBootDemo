@@ -1,11 +1,13 @@
-package com.lys.baseJava.设计模式.impl;
+package com.lys.baseJava.设计模式.pojo;
+
+import com.lys.baseJava.设计模式.service.impl.ColdDrink;
 
 /**
  * 创建扩展了 Burger 和 ColdDrink 的实体类
  *
  * 可口可乐
  */
-public class Coke extends ColdDrink  {
+public class Coke extends ColdDrink {
     @Override
     public String name() {
         return "Coke";

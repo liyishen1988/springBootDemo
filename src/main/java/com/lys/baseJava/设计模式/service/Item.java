@@ -1,4 +1,4 @@
-package com.lys.baseJava.设计模式.impl;
+package com.lys.baseJava.设计模式.service;
 
 /**
  * 创建一个表示食物条目的接口

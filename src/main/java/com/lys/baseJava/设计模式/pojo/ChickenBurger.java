@@ -1,4 +1,6 @@
-package com.lys.baseJava.设计模式.impl;
+package com.lys.baseJava.设计模式.pojo;
+
+import com.lys.baseJava.设计模式.service.impl.Burger;
 
 /**
  * 创建扩展了 Burger 和 ColdDrink 的实体类

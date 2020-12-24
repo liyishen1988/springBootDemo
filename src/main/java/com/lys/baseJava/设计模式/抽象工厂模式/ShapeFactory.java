@@ -1,6 +1,7 @@
 package com.lys.baseJava.设计模式.抽象工厂模式;
 
-import com.lys.baseJava.设计模式.impl.*;
+import com.lys.baseJava.设计模式.service.*;
+import com.lys.baseJava.设计模式.service.impl.*;
 
 /**
  * 创建扩展了 AbstractFactory 的工厂类，基于给定的信息生成实体类的对象
